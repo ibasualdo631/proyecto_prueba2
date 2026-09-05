@@ -858,6 +858,26 @@ public abstract class Cliente
             }
         }
     }
+
+
+    /**
+     * Calcula la suma total de dinero ingresado en todas las operaciones
+     * de tipo DEPOSITO realizadas por el cliente.
+     * @return El monto acumulado total de depósitos.
+     */
+    public Double obtenerTotalDepositado()
+    {
+        Double acumulador = 0.0;
+        for (Transaccion transaccion : this.transacciones)
+        {
+            if (transaccion.getTipoTransaccion().trim().equalsIgnoreCase("DEPOSITO"))
+            {
+                acumulador += transaccion.getMonto();
+            }
+        }
+        return acumulador;
+    }
+
 }
 
   
